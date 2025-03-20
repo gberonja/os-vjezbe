@@ -1,0 +1,63 @@
+# Zadatak 1
+# 1.1
+mkdir vjezba_ls
+
+mkdir -p vjezba_ls/faks/1_semestar
+mkdir -p vjezba_ls/faks/2_semestar
+
+touch vjezba_ls/faks/1_semestar/diferencijalni_i_integralni_racun.txt
+touch vjezba_ls/faks/1_semestar/logika_i_diskretna_mat.txt
+touch vjezba_ls/faks/1_semestar/multimedijalni_sustavi.txt
+touch vjezba_ls/faks/1_semestar/osnove_ikt.txt
+touch vjezba_ls/faks/1_semestar/osnove_podatkovne_znanosti.txt
+touch vjezba_ls/faks/1_semestar/programiranje.txt
+
+touch vjezba_ls/faks/2_semestar/baze_podataka_1.txt
+touch vjezba_ls/faks/2_semestar/geometrija_i_linearna_algebra.txt
+touch vjezba_ls/faks/2_semestar/informacijski_sustavi.txt
+touch vjezba_ls/faks/2_semestar/matematicka_analiza.txt
+touch vjezba_ls/faks/2_semestar/operacijski_sustavi.txt
+touch vjezba_ls/faks/2_semestar/programiranje_u_skriptnim_jezicima.txt
+
+# 1.2
+ls -R --color -1 vjezba_ls
+
+# 1.3
+ls -lt vjezba_ls/faks/1_semestar
+
+# 1.4
+touch vjezba_ls/faks/2_semestar/.tajni_kolegij.txt
+ls -lA vjezba_ls/faks/2_semestar
+
+# 1.5
+touch ../1_semestar/.tajni_kolegij.txt
+touch /mnt/c/Users/user/Documents/FIPU/2.\ semestar/Operacijski\ sustavi/Vježbe/OS-2-zadaće/vjezba1/vjezba_ls/faks/1_semestar/.tajni_kolegij.txt
+
+
+# Zadatak 2
+# 2.1
+mkdir -p Zadatak2/backup
+
+touch Zadatak2/backup/file1.txt
+touch Zadatak2/backup/file2.txt
+touch Zadatak2/backup/file3.txt
+
+# 2.2
+mkdir -p Zadatak2/backup/backup_copy
+cp -v Zadatak2/backup/*.txt Zadatak2/backup/backup_copy/
+
+# 2.3
+mv -v Zadatak2/backup/backup_copy Zadatak2/backup_moved
+
+# 2.4
+rm -ri Zadatak2/backup_moved
+
+# 2.5
+mkdir -p Zadatak2/data
+touch Zadatak2/data/.config.json
+ls -la Zadatak2/data
+
+# 2.6
+(cd  Zadatak2/data) # Zbog uvjeta zadatka (Ako se nalazite u Zadatak2/data...)
+cp -v .config.json ../backup/
+cp -v .config.json /mnt/c/Users/user/Documents/FIPU/2.\ semestar/Operacijski\ sustavi/Vježbe/OS-2-zadaće/vjezba2/Zadatak2/backup/
