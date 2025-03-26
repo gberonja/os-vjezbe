@@ -1,0 +1,117 @@
+## Isprike zbog neuredno imenovanih direktorija (vjezba_2 je pravi)
+# Zadatak 1
+mkdir -p vjezba_2/data vjezba_2/backup
+echo 'console.log("Hello, World!");' > vjezba_2/data/script.js
+echo 'body { background-color: #f0f0f0; }' > vjezba_2/data/style.css
+echo 'VJEZBE=OS' > vjezba_2/data/.env
+
+# Zadatak 2
+cp -rv vjezba_2/data/. vjezba_2/backup
+'vjezba_2/data/./style.css' -> 'vjezba_2/backup/./style.css'
+'vjezba_2/data/./script.js' -> 'vjezba_2/backup/./script.js'
+'vjezba_2/data/./.env' -> 'vjezba_2/backup/./.env'
+
+ls -laS ../backup
+total 0
+drwxrwxrwx 1 user user 4096 Mar 26 15:08 .
+drwxrwxrwx 1 user user 4096 Mar 26 15:02 ..
+-rwxrwxrwx 1 user user   36 Mar 26 15:08 style.css
+-rwxrwxrwx 1 user user   29 Mar 26 15:08 script.js
+-rwxrwxrwx 1 user user   10 Mar 26 15:08 .env
+
+
+# Zadatak 3
+cd ../..
+rm -v vjezba_2/data/*
+removed 'script.js'
+removed 'style.css'
+
+mkdir -p vjezba_2/data # ali već postoji
+cp -rv --update=none vjezba_2/backup/. vjezba_2/data # update=none umjesto -n, VSC vraća upozorenje
+'vjezba_2/backup/./style.css' -> 'vjezba_2/data/./style.css'
+'vjezba_2/backup/./script.js' -> 'vjezba_2/data/./script.js'
+
+ls -lAt --color -1 vjezba_2/data
+total 0
+-rwxrwxrwx 1 user user 29 Mar 26 15:19 script.js
+-rwxrwxrwx 1 user user 36 Mar 26 15:19 style.css
+-rwxrwxrwx 1 user user 10 Mar 26 15:05 .env
+
+# Zadatak 4
+cd ../../..
+cd 'Analiza podataka i obrada informacija'
+
+ls -laS
+total 0
+drwxrwxrwx 1 user user 4096 Mar 13 08:19  .
+drwxrwxrwx 1 user user 4096 Mar 12 14:45  ..
+drwxrwxrwx 1 user user 4096 Mar 25 19:24  Domaći
+drwxrwxrwx 1 user user 4096 Mar 22 10:20 'Samostalne vježbe'
+
+ls -lSh
+total 0
+drwxrwxrwx 1 user user 4.0K Mar 25 19:24  Domaći
+drwxrwxrwx 1 user user 4.0K Mar 22 10:20 'Samostalne vježbe'
+
+# ZADNJI KOD
+ls -laRt --color
+.:
+total 0
+drwxrwxrwx 1 user user 4096 Mar 25 19:24  Domaći
+drwxrwxrwx 1 user user 4096 Mar 22 10:20 'Samostalne vježbe'
+drwxrwxrwx 1 user user 4096 Mar 13 08:19  .
+drwxrwxrwx 1 user user 4096 Mar 12 14:45  ..
+
+./Domaći:
+total 0
+drwxrwxrwx 1 user user 4096 Mar 26 09:28 'Domaći 4'
+drwxrwxrwx 1 user user 4096 Mar 25 19:24  .
+drwxrwxrwx 1 user user 4096 Mar 18 15:45 'Domaći 3'
+drwxrwxrwx 1 user user 4096 Mar 13 08:19 'Domaći 2'
+drwxrwxrwx 1 user user 4096 Mar 13 08:19  ..
+drwxrwxrwx 1 user user 4096 Mar  6 10:29 'Domaći 1'
+
+'./Domaći/Domaći 4':
+total 224
+drwxrwxrwx 1 user user   4096 Mar 26 09:28  .
+-rwxrwxrwx 1 user user 221751 Mar 26 09:28 'DZ04 Beronja Gabriel.pdf'
+-rwxrwxrwx 1 user user   3891 Mar 26 09:28  DZ04.Rmd
+-rwxrwxrwx 1 user user    432 Mar 25 19:38  dz04.R
+drwxrwxrwx 1 user user   4096 Mar 25 19:24  ..
+
+'./Domaći/Domaći 3':
+total 212
+drwxrwxrwx 1 user user   4096 Mar 25 19:24  ..
+drwxrwxrwx 1 user user   4096 Mar 18 15:45  .
+-rwxrwxrwx 1 user user   2541 Mar 18 12:05  dz03.Rmd
+-rwxrwxrwx 1 user user 197036 Mar 18 12:02 'DZ03 Beronja Gabriel.pdf'
+-rwxrwxrwx 1 user user  10558 Mar 18 11:47  student.xlsx
+
+'./Domaći/Domaći 2':
+total 204
+drwxrwxrwx 1 user user   4096 Mar 25 19:24  ..
+-rwxrwxrwx 1 user user   1784 Mar 13 08:19  dz02.R
+drwxrwxrwx 1 user user   4096 Mar 13 08:19  .
+-rwxrwxrwx 1 user user   4978 Mar 12 09:45  .RData
+-rwxrwxrwx 1 user user   2630 Mar 12 09:45  .Rhistory
+-rwxrwxrwx 1 user user 185801 Mar 12 09:44 'DZ02 Beronja Gabriel.pdf'
+-rwxrwxrwx 1 user user   1722 Mar 12 09:44  dz02.Rmd
+
+'./Domaći/Domaći 1':
+total 184
+drwxrwxrwx 1 user user   4096 Mar 25 19:24  ..
+drwxrwxrwx 1 user user   4096 Mar  6 10:29  .
+-rwxrwxrwx 1 user user   2818 Mar  3 11:10  .RData
+-rwxrwxrwx 1 user user   1586 Mar  3 11:10  .Rhistory
+-rwxrwxrwx 1 user user 164109 Mar  3 11:08 'DZ01 Beronja Gabriel.pdf'
+-rwxrwxrwx 1 user user   1066 Mar  3 10:58  dz01.Rmd
+-rwxrwxrwx 1 user user   5518 Mar  3 10:19  data.xlsx
+
+'./Samostalne vježbe':
+total 8
+drwxrwxrwx 1 user user 4096 Mar 22 10:20 .
+-rwxrwxrwx 1 user user    0 Mar 22 10:20 .Rhistory
+-rwxrwxrwx 1 user user 1724 Mar 22 10:01 sam_zad_2.R
+-rwxrwxrwx 1 user user 1618 Mar 13 08:41 sam_zad_1.R
+drwxrwxrwx 1 user user 4096 Mar 13 08:19 ..
+
