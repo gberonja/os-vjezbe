@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Potrebno je proslijediti točno 1 argument"
+    echo "Argument mora biti naziv direktorija"
+    exit 1
+fi
+
+direktorij=$1
+
+
+if [ ! -d "$direktorij" ]; then
+    echo "Direktorij $direktorij ne postoji u trenutnom direktoriju"
+    exit 1
+fi
+
+
+zip_datoteka="svi_zapisi.zip"
+
+
+if [ -z "$(ls -A "$direktorij")" ]; then
+    echo "Direktorij $direktorij je prazan"
+    exit 1
+fi
+
+
+cd "$direktorij" || exit
+zip -r "../$zip_datoteka" ./*
+cd ..
+
+echo "Sve datoteke iz direktorija $direktorij su komprimirane u $zip_datoteka"

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+	echo "Potrebno je proslijediti točno dva argumenta"
+	echo "absolutna putanja do direktorija i datotečni nastavak"
+	exit 1
+fi
+
+direktorij=$1
+ekstenzija=$2
+
+if [ ! -d "$direktorij" ]; then
+	echo "Direktorij $direktorij ne postoji"
+	exit 1
+fi
+
+broj_datoteka=0
+
+for datoteka in "$direktorij"/*"$ekstenzija"; do
+	if [ -f "$datoteka" ]; then
+		echo "$(basename "$datoteka")"
+		broj_datoteka=$((broj_datoteka+1))
+	fi
+done
+
+if [ $broj_datoteka -eq 0 ]; then
+	echo "Nema datoteka s nastavkom $ekstenzija u direktoriju $direktorij"
+fi
+

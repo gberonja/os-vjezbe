@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+screenshots_dir="folder_zad_3/screenshots"
+
+if [ ! -d "$screenshots_dir" ]; then
+    echo "Direktorij $screenshots_dir ne postoji"
+    exit 1
+fi
+
+
+brojac=1
+
+
+for datoteka in "$screenshots_dir"/*; do
+    if [ -f "$datoteka" ]; then
+        naziv_datoteke=$(basename "$datoteka")
+        
+        novi_naziv="screenshot_${brojac}_$naziv_datoteke"
+        
+        mv "$datoteka" "$screenshots_dir/$novi_naziv"
+
+        echo "Datoteka preimenovana u: $novi_naziv"
+        
+        brojac=$((brojac + 1))
+    fi
+done
+
+echo "Preimenovano je $((brojac - 1)) datoteka"
