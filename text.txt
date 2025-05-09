@@ -1,0 +1,85 @@
+mkdir "$HOST"
+
+cd "$HOST"
+
+mkdir Desktop Documents Downloads .Thrash
+
+echo "Ovo je zadaca iz OS-a" > Downloads/zadaca.md.crdownload
+
+mkdir -p Documents/faks/os/kolokvij
+
+mv Downloads/zadaca.md.crdownload Documents/faks/os/kolokvij/zadaca.md
+
+echo "kraj" >> Documents/faks/os/kolokvij/zadaca.md
+
+cat Documents/faks/os/kolokvij/zadaca.md
+
+cd Documents/faks/os/kolokvij
+mv zadaca.md ../../../../.Thrash/
+
+cd ../../Desktop
+
+touch tajno.txt os_skripta.docx sifre.txt
+
+mv *.txt ../Documents/
+
+cd .. 
+
+ls --color=auto -R
+
+#!/bin/bash
+
+if [[ $# -ne 1 && $# -ne 2 ]]; then
+    echo "Greška"
+    exit 1
+fi
+
+if [ ! -d "$1" ]; then
+    echo "Greška"
+    exit 2
+fi
+
+broj=0
+for file in "$1"/*; do
+    if [ -f "$file" ]; then
+        ((broj++))
+    fi
+done
+
+if [ $# -eq 1 ]; then
+    echo "$broj" > broj_datoteka.txt
+else
+    if [ ! -d "$#" ]; then
+        echo "Greška"
+        exit 2
+    fi
+    echo "$broj" > "$2/broj_datoteka.txt"
+fi
+
+echo "Broj datoteka: $broj"
+
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Greška"
+    exit 1
+fi
+
+if [ ! -d "$1" ]; then
+    echo "Greška"
+    exit 2
+fi
+
+if [ -e "$2" ]; then
+    echo "Greška"
+    exit 3
+fi
+
+zip -r "$2" "$1"/*
+
+if [ $? -eq 0 ]; then
+    echo "Uspješno"
+else
+    echo "Greška"
+    exit 4
+fi
