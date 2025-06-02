@@ -1,0 +1,1 @@
+hello.py spava zbog funkcije Time gdje čeka 100 sekundi. Koristi 0% procesora i 0.5% radne memorije (od 2GB RAM-a)
